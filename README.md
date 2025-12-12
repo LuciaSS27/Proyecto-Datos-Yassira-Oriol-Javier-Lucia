@@ -454,13 +454,27 @@ Bert
 
 ![](/images/randomforest_bert_tabla.png)
 
-##Resultados KNN
+Resultados KNN
 
 TF_IDF
 
+![](/images/knn_tfidf_mconfusion.png)
+
+![](/images/knn_tfidf_tabla.png)
+
 Word2Vec
 
+![](/images/knn_word2vec_mconfusion.png)
+
+![](/images/knn_word2vec_tabla.png)
+
+
 Bert
+
+![](/images/knn_bert_mconfusion.png)
+
+![](/images/knn_bert_tabla.png)
+
 
 Transformer
 
