@@ -497,19 +497,75 @@ Una estrategia más objetiva podría haber sido clasificar los tuits según el s
 ---
 ##  10. Proyecto de extensión: análisis temático de la desinformación
 
-Se aplica el algoritmo **K-Means** sobre los embeddings de **Word2Vec** para identificar temas recurrentes relacionados con desinformación y discurso polarizado.
+Análisis temático de la desinformación: Aplicar métodos de modelado de tópicos o de clustering sobre embeddings contextuales para detectar temas recurrentes de desinformación.
 
-- Se trabaja con vectores de **200 dimensiones**.
-- Se elige **K = 20** clusters, buscando equilibrio entre detalle temático y coste computacional.
+Para identificar los temas principales presentes en el corpus y detectar aquellos susceptibles de contener desinformación o discursos polarizados, se ha aplicado el algoritmo K‑Means sobre los embeddings obtenidos con Word2Vec. Este método permite agrupar palabras que comparten contexto semántico similar, revelando así los bloques temáticos que estructuran el discurso político de los tweets.
+Se ha evaluado si el algoritmo K‑Means es capaz de encontrar similitudes entre palabras a partir de sus vectores de alta dimensión (200 dimensiones, definido en dimensión vector Word2Vec). También, se ha decidido trabajar con 20 clusters, ya que un número significativamente mayor incrementaba de forma notable el tiempo de ejecución sin aportar mejoras sustanciales para el análisis. Con este valor se ha obtenido un equilibrio adecuado entre detalle temático y eficiencia computacional.
 
-Se obtienen clusters temáticos bien diferenciados (extracto):
+A continuación se muestra el resultado obtenido ordenado por clusters:
 
-```text
+Cluster 0:
+['resignación', 'sr', 'asesinadas', 'escribo', 'xxi', 'decirlo', 'verlo', 'servir', 'adquisitivo', 'seguirlo', 'oído', 'arcadi', 'imaginar', 'intentado', 'enteron', 'jaja', 'entrado', 'escuelas', 'presentamos', 'manipulación']
+
+Cluster 1:
+['sido', 'nuevo', 'historia', 'ayer', 'ciudad', 'casa', 'importante', 'ejemplo', 'final', 'hilo', 'mundial', 'tarde', 'españold', 'información', 'primer', 'padre', 'mejores', 'alcalde', 'artículo', 'vecinos']
+
+Cluster 2:
+['parte', 'presidente', 'nueva', 'además', 'forma', 'europa', 'futuro', 'favor', 'realidad', 'real', 'proyecto', 'sector', 'político', 'española', 'situación', 'paso', 'pueblo', 'centro', 'plan', 'hacia']
+
+Cluster 3:
+['manifestación', 'sol', 'asesinato', 'asamblea', 'hermano', 'covid', 'presente', 'v', 'línea', 'recuperar', 'apenas', 'privado', 'mayo', 'apoyar', 'universidad', 'perdido', 'terrible', 'hablado', 'dato', 'burgos']
+
+Cluster 4:
+['muejejeje', 'apunto', 'alcaldesas', 'landaluce', 'publiqué', 'cesiones', 'indignante', 'destruyen', 'avala', 'leerla', 'resuelto', 'diputadas', 'impulsado', 'jejeje', 'disfrutad', '000m', 'indepes', 'atreven', 'desea', 'reunidos']
+
 Cluster 5:
 ['españa', 'madrid', 'frente', 'guerra', 'mientras', 'público', 'sanidad', 'pública', 'mayor', 'empleo', 'dinero', 'grandes', 'medidas', 'comunidad', 'trabajadores', 'familias', 'inflación', 'economía', 'salud', 'ayuntamiento']
+
+Cluster 6:
+['años', 'año', 'días', '000', '1', '2', '3', 'millones', '5', '4', 'euro', 'meses', '20', '10', '30', '6', '8', '7', '15', '9']
+
+Cluster 7:
+['q', 'políticas', 'igualdad', 'cuentas', 'públicas', 'avanzar', 'web', 'seguiré', 'rindo', 'permitan']
+
+Cluster 8:
+['partido', 'caso', 'mujer', 'sigue', 'debate', 'medios', 'elecciones', 'acuerdo', 'posible', 'haciendo', 'siendo', 'cara', 'dicen', 'tipo', 'poner', 'calle', 'seguro', 'unas', 'lugar', 'camino']
+
+Cluster 9:
+['siempre', 'aquí', 'así', 'mejor', 'bien', 'ver', 'gente', 'tan', 'hecho', 'tiempo', 'creo', 'mundo', 'parece', 'cosas', 'pues', 'nunca', 'verdad', 'vamos', 'cuenta', 'sé']
+
+Cluster 10:
+['democracia', 'seguir', 'tuit', 'quiero', 'compromiso', 'justa', 'comentarios', 'leo', 'defendiendo', 'ciudadano', 'marea', 'trumpista', 'agradecerlos']
+
+Cluster 11:
+['ah', 'pienso', 'veremos', 'contado', 'dep', 'raro', 'pierde', 'regalo', 'trabajadora', 'jajaja', 'empezamos', 'explico', 'candidatos', 'secretario', 'valentía', 'local', 'credibilidad', 'explicado', 'obviamente', 'doy']
 
 Cluster 12:
 ['politician', 'gobierno', 'ley', 'periodista', 'digital', 'congreso', 'poder', 'sólo', 'derecha', 'podemos', 'españoles', 'sino', 'cambio', 'impuestos', 'crisis', 'reforma', 'mayoría', 'cgpj', 'constitución', 'constitucional']
 
+Cluster 13:
+['día', 'vez', 'cada']
+
+Cluster 14:
+['preciosa', 'preocupante', 'jajajaja', 'admiro', 'guay', 'infinito', 'pierden', 'quintero', 'catar', 'preparados', 'ajena', 'salva', 'pantalla', 'asistido', 'aprobamos', 'claras', 'belén', 'engañar', 'abrazos', 'exacto']
+
+Cluster 15:
+['bajando', 'comenzamos', 'jajaj', 'gustar', 'escrúpulos', 'gastar', 'habitante', 'confiar', 'twitcheada', 'refieres', 'tarda', 'colmo', 'parla', 'citar', 'preocupados', 'elemento', 'jose', 'tuitero', 'decisivo', 'andalucia']
+
+Cluster 16:
+['user', 'hashtag', 'hoy', 'gracias', 'gran', 'trabajo', 'muchas', 'mañana', 'amigo', 'abrazo', 'entrevista', 'enhorabuena', 'apoyo', 'junto', 'libro', 'familia', 'buen', 'equipo', 'noche', 'feliz']
+
 Cluster 17:
 ['toda', 'persona', 'vida', 'política', 'país', 'mujeres', 'social', 'derechos', 'hombre', 'violencia', 'justicia', 'derecho', 'libertad', 'víctimas', 'sociedad', 'seguridad', 'lucha', 'género', 'instituciones', 'defender']
+
+Cluster 18:
+['si', 'ser', 'solo', 'ahora', 'puede', 'va', 'hacer', 'menos', 'cómo', 'dice', 'mismo', 'decir', 'da', 'nadie', 'claro', 'tener', 'mal', 'aunque', 'igual', 'van']
+
+Cluster 19:
+['hace', 'do', 'después', 'tras', 'primera', 'pasado', 'semana', 'casi', 'fin', 'datos', 'tres', 'medio', '2022', '2023', 'horas', 'lleva', 'hora', 'minutos', 'domingo', 'luz']
+
+Cluster 12 concentra vocabulario como "gobierno", "ley", "derecha", "constitución", indicando un bloque temático más ideológico. Asimismo, el Cluster 3 contiene palabras asociadas a manifestaciones, sucesos y temas sensibles como "asesinato", "manifestación" o "covid".
+
+La existencia de estos bloques semánticos confirma que el clustering sobre embeddings permite identificar tópicos sensibles, muchos de los cuales coinciden con áreas donde la desinformación tiende a aparecer con mayor frecuencia como economía, pandemia, violencia o política institucional.
+
+Como en Word2Vec, se ha realizado una representación T-SNE:
