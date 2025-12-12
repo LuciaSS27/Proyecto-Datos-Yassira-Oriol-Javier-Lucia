@@ -322,6 +322,43 @@ En total se obtienen **9 combinaciones** (3 vectorizaciones × 3 clasificadores)
 
 ---
 ## 7. Evaluación comparativa
+
+
+Resultados Red Neuronal:
+![](/images/redneuronal_accuracy.png)
+
+![](/images/redneuronal_loss.png)
+
+![](/images/redneuronal_f1.png)
+
+Resultados Logistic Regresion:
+TF_IDF
+![](/images/logistic_tfidf_mconfusion.png)
+
+![](/images/logistic_tfidf_tabla.png)
+
+Word2Vec
+![](/images/logistic_word2vec_mconfusion.png)
+
+![](/images/logistic_word2vec_tabla.png)
+
+Bert
+![](/images/logistic_bert_mconfusion.png)
+
+![](/images/logistic_bert_tabla.png)
+
+Resultados Random Forest:
+TF_IDF
+![](/images/randomforest_tfidf_mconfusion.png)
+
+![](/images/randomforest_tfidf_tabla.png)
+
+Word2Vec
+
+
+Bert
+
+
 ---
 ## 8. Modelo Transformer preentrenado con *fine-tuning*
 
