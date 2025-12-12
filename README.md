@@ -253,8 +253,6 @@ Para la red neuronal utilizada se entrena un clasificador a partir de textos usa
 
 6) Al finalizar, se muestran gráficas de pérdida, precisión y F1 usando las funciones plot_loss, plot_accuracy y plot_f1.
 
-Para usarlo, ejecuta el script y elige T, W o B cuando se solicite.
-
 ### 6.2 Clasificadores de Scikit-learn
 
 Se emplean tres algoritmos:
