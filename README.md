@@ -127,6 +127,7 @@ Sobre cada subconjunto se aplicó el mismo pipeline de preprocesamiento:
 - Eliminación de **stopwords** en español (NLTK)
 
 Después se tokenizó, se calcularon frecuencias y se generaron **nubes de palabras** con `WordCloud`:
+
 Ideología: Izquierda
 ![](/images/5ND_Image_6.png)
 Ideología: Izquierda moderada
