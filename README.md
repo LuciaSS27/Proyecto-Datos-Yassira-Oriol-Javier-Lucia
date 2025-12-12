@@ -320,10 +320,11 @@ Funciones: `KNN_class` y `knn_validation`.
 En total se obtienen **9 combinaciones** (3 vectorizaciones × 3 clasificadores) cuyas métricas se comparan en el informe.
 
 ---
+## 7. Evaluación comparativa
+---
+## 8. Modelo Transformer preentrenado con *fine-tuning*
 
-## 7. Modelo Transformer preentrenado con *fine-tuning*
-
-### 7.1 Preparación de datos
+### 8.1 Preparación de datos
 
 Se seleccionan las columnas:
 
@@ -347,7 +348,7 @@ Cada partición se convierte al formato **`Dataset`** de Hugging Face: una tabla
 
 ![](/images/PPB_Image_19.png)
 
-### 7.2 Configuración del Transformer y entrenamiento
+### 8.2 Configuración del Transformer y entrenamiento
 
 Se emplea el modelo **BETO** (`dccuchile/bert-base-spanish-wwm-cased`) cargado con `AutoModelForSequenceClassification`, añadiendo una capa final de clasificación con 4 neuronas.
 
@@ -371,7 +372,7 @@ Durante el entrenamiento, la pérdida desciende desde ≈1.34 hasta ≈0.65, ind
 
 ![](/images/ni5_Image_20.png)
 
-### 7.3 Resultados del Transformer
+### 8.3 Resultados del Transformer
 
 Tras el fine-tuning se evalúa primero sobre validación y después sobre test:
 
@@ -387,7 +388,7 @@ El Transformer preentrenado y ajustado mediante fine-tuning consigue **más del 
 
 ---
 
-## 8. Proyecto de extensión: análisis temático de la desinformación
+## 9. Proyecto de extensión: análisis temático de la desinformación
 
 Se aplica el algoritmo **K-Means** sobre los embeddings de **Word2Vec** para identificar temas recurrentes relacionados con desinformación y discurso polarizado.
 
