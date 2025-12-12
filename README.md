@@ -208,6 +208,7 @@ TF-IDF funciona especialmente bien con clasificadores lineales como **SVM** o **
 
 - Entrenado de forma no supervisada con **Gensim** sobre los tweets preprocesados.
 - Cada palabra recibe un vector denso.
+  ![](/images/F4J_Image_10.png)
 - Los documentos se representan como el **promedio** de los vectores de sus palabras.
 
 Ejemplo de exploración semántica con `most_similar()`:
@@ -215,9 +216,10 @@ Ejemplo de exploración semántica con `most_similar()`:
 - Para **“mujeres”** aparecen términos como “víctimas”, “violencia”, “género”, “derechos”.
 - Para **“gobierno”** aparecen términos como “socialcomunista”, “sedición”, “constitucional”, “oposición”.
 
-![](/images/F4J_Image_10.png)
+![](/images/10.png)
 
 Se proyectaron 500 embeddings con **t-SNE** para visualizar agrupaciones semánticas y comprobar la coherencia del modelo.
+![](/images/11.png)
 
 #### 5.2.3 BERT / BETO (embeddings contextuales)
 
