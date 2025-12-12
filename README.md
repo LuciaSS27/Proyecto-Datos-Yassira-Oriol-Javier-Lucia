@@ -525,20 +525,17 @@ La vectorización con embeddings mediante Word2Vec logró mejorar los resultados
 
 El método que presentó el mejor desempeño fue TF-IDF. Su capacidad para resaltar palabras clave permitió obtener métricas superiores frente a los otros modelos. En este caso, la representación basada en frecuencia resultó más adecuada que los embeddings para este conjunto de datos y tarea específica.
 
-En conjunto, los resultados muestran que, para este problema concreto, los métodos más simples y basados en frecuencia pueden ser más eficaces que modelos basados en
-embeddings o modelos preentrenados de lenguaje, especialmente cuando los textos son cortos o contienen poco contexto político explícito.
+En conjunto, los resultados muestran que, para este problema concreto, los métodos más simples y basados en frecuencia pueden ser más eficaces que modelos basados en embeddings o modelos preentrenados de lenguaje, especialmente cuando los textos son cortos o contienen poco contexto político explícito.
 
-Por otro lado, destacar que implementando el transformer Hugging Face, los resultados obtenidos son similares a los conseguidos mediante los algoritmos de clasificación
-
-Scikit-Learn y el clasificador implementado con PyTorch concluyendo que el tema de clasificación multiclase por ideología no es el idóneo.
+Por otro lado, destacar que implementando el transformer Hugging Face, los resultados obtenidos son similares a los conseguidos mediante los algoritmos de clasificación Scikit-Learn y el clasificador implementado con PyTorch concluyendo que el tema de clasificación multiclase por ideología no es el idóneo.
 
 Suposiciones
 
 Durante el desarrollo del proyecto se han identificado varias limitaciones que pueden haber influido en los resultados:
 
-1. Presencia de tuits genéricos:
+1. Presencia de tweets genéricos:
 
-En el conjunto de datos aparecían tuits que no contenían información política suficiente para asignar una ideología. La inclusión de estos mensajes probablemente afectó a la calidad de la clasificación, introduciendo ruido en el aprendizaje de los modelos.
+En el conjunto de datos aparecían tweets que no contenían información política suficiente para asignar una ideología. La inclusión de estos mensajes probablemente afectó a la calidad de la clasificación, introduciendo ruido en el aprendizaje de los modelos.
 
 2. Subjetividad en la clasificación política:
 
@@ -546,14 +543,12 @@ La ideología política es un concepto en gran parte subjetivo. Lo que una perso
 
 3. Posible enfoque alternativo:
 
-Una estrategia más objetiva podría haber sido clasificar los tuits según el sector político al que se refieren (por ejemplo, economía, educación, políticas sociales, etc.) en lugar de intentar inferir la ideología completa. Esto habría reducido la subjetividad y posiblemente mejorado el rendimiento del sistema.
+Una estrategia más objetiva podría haber sido clasificar los tweets según el sector político al que se refieren (por ejemplo, economía, educación, políticas sociales, etc.) en lugar de intentar inferir la ideología completa. Esto habría reducido la subjetividad y posiblemente mejorado el rendimiento del sistema.
 
 ---
-##  9. Proyecto de extensión: análisis temático de la desinformación
+##  9. Proyecto de extensión: análisis temático de la desinformación para detección de temas recurrentes o desinformación.
 
-Análisis temático de la desinformación: Aplicar métodos de modelado de tópicos o de clustering sobre embeddings contextuales para detectar temas recurrentes de desinformación.
-
-Para identificar los temas principales presentes en el corpus y detectar aquellos susceptibles de contener desinformación o discursos polarizados, se ha aplicado el algoritmo K‑Means sobre los embeddings obtenidos con Word2Vec. Este método permite agrupar palabras que comparten contexto semántico similar, revelando así los bloques temáticos que estructuran el discurso político de los tweets.
+Para identificar los temas principales presentes en el corpus y detectar aquellos susceptibles de contener desinformación o discursos polarizados, se ha aplicado el algoritmo K‑Means sobre los embeddings obtenidos con Word2Vec. Este método permite agrupar palabras que comparten contexto semántico similar, mostrando los bloques temáticos que estructuran el discurso político de los tweets.
 Se ha evaluado si el algoritmo K‑Means es capaz de encontrar similitudes entre palabras a partir de sus vectores de alta dimensión (200 dimensiones, definido en dimensión vector Word2Vec). También, se ha decidido trabajar con 20 clusters, ya que un número significativamente mayor incrementaba de forma notable el tiempo de ejecución sin aportar mejoras sustanciales para el análisis. Con este valor se ha obtenido un equilibrio adecuado entre detalle temático y eficiencia computacional.
 
 A continuación se muestra el resultado obtenido ordenado por clusters:
