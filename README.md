@@ -193,8 +193,12 @@ Pasos:
 
 1. Construcción del **Bag of Words (BoW)**:  
    cada documento se representa como pares `(id_palabra, frecuencia)`.
-2. Aplicación de **`TfidfVectorizer`** de Scikit-learn sobre el BoW.
-3. Conversión final a vectores densos de tamaño |vocabulario| mediante `sparse2full` para poder usarlos en la red neuronal.
+![](/images/7.png)
+   
+3. Aplicación de **`TfidfVectorizer`** de Scikit-learn sobre el BoW.
+![](/images/8.png)  
+4. Conversión final a vectores densos de tamaño |vocabulario| mediante `sparse2full` para poder usarlos en la red neuronal.
+
 
 TF-IDF funciona especialmente bien con clasificadores lineales como **SVM** o **regresión logística**, aunque no captura relaciones semánticas profundas entre palabras.
 
