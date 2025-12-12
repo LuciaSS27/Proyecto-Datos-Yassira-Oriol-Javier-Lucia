@@ -169,9 +169,12 @@ A continuación, se muestra con la primera frase del primer tweet el procedimien
 
 ![](/images/1.png)
 
-![](/images/2.png)
+![](/images/flecha.png)
 
+![](/images/2.png)
+![](/images/flecha.png)
 ![](/images/3.png)
+![](/images/flecha.png)
 
 ![](/images/4.png)
 
