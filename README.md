@@ -381,7 +381,10 @@ Tokenización con `AutoTokenizer.from_pretrained`:
 - `padding="max_length"`
 - `truncation=True`
 
-Entrenamiento con la clase `Trainer`, usando como métricas **accuracy** y **F1-macro**.
+De este modo, cada tweet queda representado por un vector de identificadores de tokens y una máscara de atención.
+
+El entrenamiento se llevó a cabo con la clase Trainer de Hugging Face, especificando como métrica de evaluación la **accuracy** y el **F1-macro**. Estos valores se calculan a partir de las predicciones del modelo mediante una función compute_metrics que aplica argmax sobre los logits y posteriormente llama a accuracy_score y f1_score(average="macro").
+
 
 Hiperparámetros principales:
 
@@ -391,10 +394,7 @@ Hiperparámetros principales:
 - Épocas: 3
 - Weight decay: 0.01
 
-Durante el entrenamiento, la pérdida desciende desde ≈1.34 hasta ≈0.65, indicando que el modelo está aprendiendo patrones útiles.
-Una vez entrenado el modelo Transformer, se utilizó la función evaluate de la clase Trainer para medir su rendimiento. Esta función calcula varias métricas automáticamente; en este trabajo nos fijamos solo en dos:
-
-La accuracy n correctamente y el F1-macro (eval_f1_macro), que resume cómo de bien funciona el modelo teniendo en cuenta las cuatro clases por igual.
+Durante el entrenamiento la función de pérdida de entrenamiento disminuye desde valores iniciales en torno a 1,34 hasta aproximadamente 0,65 al final de la tercera época, lo que indica que el modelo está aprendiendo patrones útiles a partir del texto.
 
 ![](/images/ni5_Image_20.png)
 
