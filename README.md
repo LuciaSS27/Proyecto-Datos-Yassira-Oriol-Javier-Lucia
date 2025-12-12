@@ -49,7 +49,7 @@ Requisitos abordados:
 
 ---
 
-## 4. Análisis de las variables de entrada
+## 4. Análisis exploratorio del conjunto de datos
 
 ### 4.1 Carga y descripción del conjunto de datos
 
