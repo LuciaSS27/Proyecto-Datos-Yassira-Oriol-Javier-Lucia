@@ -342,9 +342,9 @@ Funciones: `KNN_class` y `knn_validation`.
 ![](/images/GUX_Image_17.png)
 
 En total se obtienen **9 combinaciones** (3 vectorizaciones × 3 clasificadores) cuyas métricas se comparan en el informe.
-## 6.3 Modelo Transformer preentrenado con *fine-tuning*
+### 6.3 Modelo Transformer preentrenado con *fine-tuning*
 
-### 6.3.1 Preparación de datos
+#### 6.3.1 Preparación de datos
 
 Se seleccionan las columnas:
 
@@ -371,7 +371,7 @@ el texto del tweet y su label numérico (la ideología codificada como 0, 1, 2 o
 
 ![](/images/PPB_Image_19.png)
 
-### 6.3.2 Configuración del Transformer y entrenamiento
+#### 6.3.2 Configuración del Transformer y entrenamiento
 
 Se emplea el modelo **BETO** (`dccuchile/bert-base-spanish-wwm-cased`) cargado con `AutoModelForSequenceClassification`, añadiendo una capa final de clasificación con 4 neuronas.
 
@@ -397,7 +397,7 @@ Hiperparámetros principales:
 Durante el entrenamiento la función de pérdida de entrenamiento disminuye desde valores iniciales en torno a 1,34 hasta aproximadamente 0,65 al final de la tercera época, lo que indica que el modelo está aprendiendo patrones útiles a partir del texto.
 
 ![](/images/ni5_Image_20.png)
-### 6.3.3 Resultados del Transformer
+#### 6.3.3 Resultados del Transformer
 Una vez entrenado el modelo Transformer, se utilizó la función evaluate de la clase Trainer para medir su rendimiento. Esta función calcula varias métricas automáticamente; en este trabajo nos fijamos solo en dos:
 La **accuracy (eval_accuracy)**, que indica qué porcentaje de tweets se clasifica correctamente,
 y el **F1-macro (eval_f1_macro)**, que resume cómo de bien funciona el modelo teniendo en cuenta las cuatro clases por igual.
