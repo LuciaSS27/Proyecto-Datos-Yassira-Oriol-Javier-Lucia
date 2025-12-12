@@ -198,7 +198,7 @@ Pasos:
 3. Aplicación de **`TfidfVectorizer`** de Scikit-learn sobre el BoW.
 ![](/images/8.png)  
 4. Conversión final a vectores densos de tamaño |vocabulario| mediante `sparse2full` para poder usarlos en la red neuronal.
-
+![](/images/9.png)  
 
 TF-IDF funciona especialmente bien con clasificadores lineales como **SVM** o **regresión logística**, aunque no captura relaciones semánticas profundas entre palabras.
 
