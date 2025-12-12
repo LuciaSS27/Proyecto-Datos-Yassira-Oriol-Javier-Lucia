@@ -127,10 +127,13 @@ Sobre cada subconjunto se aplicó el mismo pipeline de preprocesamiento:
 - Eliminación de **stopwords** en español (NLTK)
 
 Después se tokenizó, se calcularon frecuencias y se generaron **nubes de palabras** con `WordCloud`:
-
+Ideología: Izquierda
 ![](/images/5ND_Image_6.png)
+Ideología: Izquierda moderada
 ![](/images/oMS_Image_7.png)
+Ideología: Derecha moderada
 ![](/images/geF_Image_8.png)
+Ideología: Derecha
 ![](/images/s7d_Image_9.png)
 
 Este análisis permite comparar el vocabulario predominante de cada bloque ideológico y sirve de base para aplicar técnicas más avanzadas de PLN y aprendizaje automático.
