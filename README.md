@@ -319,6 +319,58 @@ Funciones: `KNN_class` y `knn_validation`.
 ![](/images/GUX_Image_17.png)
 
 En total se obtienen **9 combinaciones** (3 vectorizaciones × 3 clasificadores) cuyas métricas se comparan en el informe.
+## 6.3 Modelo Transformer preentrenado con *fine-tuning*
+
+### 6.3.1 Preparación de datos
+
+Se seleccionan las columnas:
+
+- `tweet`
+- `ideology_multiclass`
+
+Del dataset original (43.760 tweets) se realiza un **submuestreo aleatorio de 8.000 tweets**, fijando `random_state=42` para garantizar la reproducibilidad.
+
+Las etiquetas (`left`, `moderate_left`, `moderate_right`, `right`) se codifican a enteros con `LabelEncoder`, obteniendo una variable `label` con 4 clases (0–3).
+
+![](/images/4zU_Image_18.png)
+
+División del subconjunto:
+
+- Entrenamiento: 5.760 tweets (~72%)
+- Validación: 640 tweets (~8%)
+- Test: 1.600 tweets (20%)
+
+Se mantiene una distribución similar de ideologías en los tres conjuntos.  
+Cada partición se convierte al formato **`Dataset`** de Hugging Face: una tabla con el texto del tweet y su etiqueta numérica.
+
+![](/images/PPB_Image_19.png)
+
+### 6.3.2 Configuración del Transformer y entrenamiento
+
+Se emplea el modelo **BETO** (`dccuchile/bert-base-spanish-wwm-cased`) cargado con `AutoModelForSequenceClassification`, añadiendo una capa final de clasificación con 4 neuronas.
+
+Tokenización con `AutoTokenizer.from_pretrained`:
+
+- Longitud máxima: 128 tokens
+- `padding="max_length"`
+- `truncation=True`
+
+Entrenamiento con la clase `Trainer`, usando como métricas **accuracy** y **F1-macro**.
+
+Hiperparámetros principales:
+
+- Learning rate: `2e-5`
+- Batch size (train): 16
+- Batch size (eval): 32
+- Épocas: 3
+- Weight decay: 0.01
+
+Durante el entrenamiento, la pérdida desciende desde ≈1.34 hasta ≈0.65, indicando que el modelo está aprendiendo patrones útiles.
+Una vez entrenado el modelo Transformer, se utilizó la función evaluate de la clase Trainer para medir su rendimiento. Esta función calcula varias métricas automáticamente; en este trabajo nos fijamos solo en dos:
+
+La accuracy n correctamente y el F1-macro (eval_f1_macro), que resume cómo de bien funciona el modelo teniendo en cuenta las cuatro clases por igual.
+
+![](/images/ni5_Image_20.png)
 
 ---
 ## 7. Evaluación comparativa
@@ -358,67 +410,20 @@ Word2Vec
 
 Bert
 
+Resultados KNN
 
----
-## 8. Modelo Transformer preentrenado con *fine-tuning*
+TF_IDF
 
-### 8.1 Preparación de datos
+Word2Vec
 
-Se seleccionan las columnas:
+Bert
 
-- `tweet`
-- `ideology_multiclass`
+Transformer
 
-Del dataset original (43.760 tweets) se realiza un **submuestreo aleatorio de 8.000 tweets**, fijando `random_state=42` para garantizar la reproducibilidad.
+En el conjunto de validación, el modelo obtiene una accuracy de 0,506 (aproximadamente un 51 % de aciertos) y un F1-macro de 0,485.
+En el conjunto de test, que no se ha utilizado en ningún momento durante el entrenamiento, los valores son 0,548 en accuracy (alrededor de un 55 % de aciertos) y 0,518 en F1-macro.
 
-Las etiquetas (`left`, `moderate_left`, `moderate_right`, `right`) se codifican a enteros con `LabelEncoder`, obteniendo una variable `label` con 4 clases (0–3).
-
-![](/images/4zU_Image_18.png)
-
-División del subconjunto:
-
-- Entrenamiento: 5.760 tweets (~72%)
-- Validación: 640 tweets (~8%)
-- Test: 1.600 tweets (20%)
-
-Se mantiene una distribución similar de ideologías en los tres conjuntos.  
-Cada partición se convierte al formato **`Dataset`** de Hugging Face: una tabla con el texto del tweet y su etiqueta numérica.
-
-![](/images/PPB_Image_19.png)
-
-### 8.2 Configuración del Transformer y entrenamiento
-
-Se emplea el modelo **BETO** (`dccuchile/bert-base-spanish-wwm-cased`) cargado con `AutoModelForSequenceClassification`, añadiendo una capa final de clasificación con 4 neuronas.
-
-Tokenización con `AutoTokenizer.from_pretrained`:
-
-- Longitud máxima: 128 tokens
-- `padding="max_length"`
-- `truncation=True`
-
-Entrenamiento con la clase `Trainer`, usando como métricas **accuracy** y **F1-macro**.
-
-Hiperparámetros principales:
-
-- Learning rate: `2e-5`
-- Batch size (train): 16
-- Batch size (eval): 32
-- Épocas: 3
-- Weight decay: 0.01
-
-Durante el entrenamiento, la pérdida desciende desde ≈1.34 hasta ≈0.65, indicando que el modelo está aprendiendo patrones útiles.
-
-![](/images/ni5_Image_20.png)
-
-### 8.3 Resultados del Transformer
-Una vez entrenado el modelo Transformer, se utilizó la función evaluate de la clase Trainer para medir su rendimiento. Esta función calcula varias métricas automáticamente; en este trabajo nos fijamos solo en dos:
-
-La accuracy (eval_accuracy), que indica qué porcentaje de tweets se clasifican correctamente y el F1-macro (eval_f1_macro), que resume cómo de bien funciona el modelo teniendo en cuenta las cuatro clases por igual.
-
-- En el conjunto de validación, el modelo obtiene una accuracy de 0,506 (aproximadamente un 51 % de aciertos) y un F1-macro de 0,485.
-- En el conjunto de test, que no se ha utilizado en ningún momento durante el entrenamiento, los valores son 0,548 en accuracy (alrededor de un 55 % de aciertos) y 0,518 en F1-macro.
-
-Además, como en este problema hay cuatro posibles ideologías, si el modelo eligiera una clase completamente al azar solo acertaría aproximadamente uno de cada cuatro tweets. El hecho de que el Transformer acierte algo más de la mitad y obtenga un F1-macro cercano a 0,52 muestra que realmente está aprendiendo patrones en el lenguaje de los tweets y es capaz de utilizar esa información para distinguir entre las distintas ideologías.
+Además, como en este problema hay cuatro posibles ideologías, si el modelo eligiera una clase completamente al azar solo acertaría aproximadamente uno de cada cuatro tweets. El hecho de que el Transformer acierte algo más de la mitad y obtenga un F1-macro cercano a 0,52 muestra que realmente está aprendiendo patrones en el lenguaje de los tweets y es capaz de utilizar esa información para distinguir entre las distintas ideologías
 
 ---
 
