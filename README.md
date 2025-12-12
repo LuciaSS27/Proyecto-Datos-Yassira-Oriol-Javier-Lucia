@@ -404,6 +404,24 @@ Durante el entrenamiento la función de pérdida de entrenamiento disminuye desd
 
 
 Resultados Red Neuronal:
+-**TF_IDF**
+
+![](/images/redneuronal_accuracy_tfidf.png)
+
+![](/images/redneuronal_loss_tfidf.png)
+
+![](/images/redneuronal_f1_tfidf.png)
+
+
+-**Word2Vec**
+
+![](/images/redneuronal_accuracy_word2vec.png)
+
+![](/images/redneuronal_loss_word2vec.png)
+
+![](/images/redneuronal_f1_word2vec.png)
+
+-**BERT**
 
 ![](/images/redneuronal_accuracy.png)
 
@@ -411,21 +429,23 @@ Resultados Red Neuronal:
 
 ![](/images/redneuronal_f1.png)
 
+
+
 Resultados Logistic Regresion:
 
-TF_IDF
+-**TF_IDF**
 
 ![](/images/logistic_tfidf_mconfusion.png)
 
 ![](/images/logistic_tfidf_tabla.png)
 
-Word2Vec
+-**Word2Vec**
 
 ![](/images/logistic_word2vec_mconfusion.png)
 
 ![](/images/logistic_word2vec_tabla.png)
 
-Bert
+-**BERT**
 
 ![](/images/logistic_bert_mconfusion.png)
 
@@ -433,14 +453,14 @@ Bert
 
 Resultados Random Forest:
 
-TF_IDF
+-**TF_IDF**
 
 ![](/images/randomforest_tfidf_mconfusion.png)
 
 ![](/images/randomforest_tfidf_tabla.png)
 
 
-Word2Vec
+-**Word2Vec**
 
 ![](/images/randomforest_word2vec_mconfusion.png)
 
@@ -448,7 +468,7 @@ Word2Vec
 
 
 
-Bert
+-**BERT**
 
 ![](/images/randomforest_bert_mconfusion.png)
 
@@ -456,20 +476,21 @@ Bert
 
 Resultados KNN
 
-TF_IDF
+-**TF_IDF**
+
 
 ![](/images/knn_tfidf_mconfusion.png)
 
 ![](/images/knn_tfidf_tabla.png)
 
-Word2Vec
+-**Word2Vec**
 
 ![](/images/knn_word2vec_mconfusion.png)
 
 ![](/images/knn_word2vec_tabla.png)
 
 
-Bert
+-**BERT**
 
 ![](/images/knn_bert_mconfusion.png)
 
