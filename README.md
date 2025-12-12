@@ -533,7 +533,7 @@ En conjunto, los resultados muestran que, para este problema concreto, los méto
 
 Por otro lado, destacar que implementando el transformer Hugging Face, los resultados obtenidos son similares a los conseguidos mediante los algoritmos de clasificación Scikit-Learn y el clasificador implementado con PyTorch concluyendo que el tema de clasificación multiclase por ideología no es el idóneo.
 
-Suposiciones
+**Suposiciones**
 
 Durante el desarrollo del proyecto se han identificado varias limitaciones que pueden haber influido en los resultados:
 
