@@ -165,7 +165,15 @@ Pasos principales:
    - **Lematización**, para agrupar variantes de una misma palabra.
    - Eliminación de **stopwords**.
 
-Se ilustra el pipeline completo sobre la primera frase del primer tweet (original → wrangling → tokenizado → homogeneizado).
+A continuación, se muestra con la primera frase del primer tweet el procedimiento de aplicar cada uno de estos pasos.
+
+![](/images/1.png)
+
+![](/images/2.png)
+
+![](/images/3.png)
+
+![](/images/4.png)
 
 ### 5.2 Vectorización
 
