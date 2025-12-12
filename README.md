@@ -363,8 +363,11 @@ División del subconjunto:
 - Validación: 640 tweets (~8%)
 - Test: 1.600 tweets (20%)
 
-Se mantiene una distribución similar de ideologías en los tres conjuntos.  
-Cada partición se convierte al formato **`Dataset`** de Hugging Face: una tabla con el texto del tweet y su etiqueta numérica.
+Al hacer esta división se aseguro de que en los tres grupos hubiera más o menos la misma proporción de cada ideología, para que ninguno quedara con menos de alguna clase, de esta manera, el modelo solo aprende con los datos de entrenamiento.
+
+Después, cada uno de estos tres grupos (train, validación y test) se pasó al formato que usa Hugging Face (Dataset), que es una tabla que solo guarda dos cosas por fila:
+el texto del tweet y su label numérico (la ideología codificada como 0, 1, 2 o 3).
+
 
 ![](/images/PPB_Image_19.png)
 
