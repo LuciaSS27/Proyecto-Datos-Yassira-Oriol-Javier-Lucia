@@ -397,18 +397,7 @@ Hiperparámetros principales:
 Durante el entrenamiento la función de pérdida de entrenamiento disminuye desde valores iniciales en torno a 1,34 hasta aproximadamente 0,65 al final de la tercera época, lo que indica que el modelo está aprendiendo patrones útiles a partir del texto.
 
 ![](/images/ni5_Image_20.png)
-#### 6.3.3 Resultados del Transformer
-Una vez entrenado el modelo Transformer, se utilizó la función evaluate de la clase Trainer para medir su rendimiento. Esta función calcula varias métricas automáticamente; en este trabajo nos fijamos solo en dos:
-La **accuracy (eval_accuracy)**, que indica qué porcentaje de tweets se clasifica correctamente,
-y el **F1-macro (eval_f1_macro)**, que resume cómo de bien funciona el modelo teniendo en cuenta las cuatro clases por igual.
 
-
--**En el conjunto de validación**, el modelo obtiene una accuracy de 0,506 (alrededor de un 51 % de aciertos) y un F1-macro de 0,485.
-
-
--**En el conjunto de test**, que no se ha utilizado en ningún momento durante el entrenamiento, los valores son 0,548 en accuracy (aproximadamente un 55 % de aciertos) y 0,518 en F1-macro.
-
-Estos resultados son los que se usan después para comparar el Transformer con el resto de modelos del proyecto. Además, como en este problema hay cuatro posibles ideologías, si el modelo eligiera una clase al azar solo acertaría aproximadamente 1 de cada 4 tweets. El hecho de que el Transformer acierte algo más de la mitad y obtenga un F1-macro cercano a 0,52 muestra que realmente está aprendiendo patrones del lenguaje de los tweets y que es capaz de aprovechar esa información para distinguir entre las distintas ideologías.
 
 ---
 ## 7. Evaluación comparativa
@@ -465,10 +454,11 @@ Bert
 
 Transformer
 
-En el conjunto de validación, el modelo obtiene una accuracy de 0,506 (aproximadamente un 51 % de aciertos) y un F1-macro de 0,485.
-En el conjunto de test, que no se ha utilizado en ningún momento durante el entrenamiento, los valores son 0,548 en accuracy (alrededor de un 55 % de aciertos) y 0,518 en F1-macro.
+-**En el conjunto de validación**, el modelo obtiene una accuracy de 0,506 (alrededor de un 51 % de aciertos) y un F1-macro de 0,485.
 
-Además, como en este problema hay cuatro posibles ideologías, si el modelo eligiera una clase completamente al azar solo acertaría aproximadamente uno de cada cuatro tweets. El hecho de que el Transformer acierte algo más de la mitad y obtenga un F1-macro cercano a 0,52 muestra que realmente está aprendiendo patrones en el lenguaje de los tweets y es capaz de utilizar esa información para distinguir entre las distintas ideologías
+-**En el conjunto de test**, que no se ha utilizado en ningún momento durante el entrenamiento, los valores son 0,548 en accuracy (aproximadamente un 55 % de aciertos) y 0,518 en F1-macro.
+
+Además, como en este problema hay cuatro posibles ideologías, si el modelo eligiera una clase al azar solo acertaría aproximadamente 1 de cada 4 tweets. El hecho de que el Transformer acierte algo más de la mitad y obtenga un F1-macro cercano a 0,52 muestra que realmente está aprendiendo patrones del lenguaje de los tweets y que es capaz de aprovechar esa información para distinguir entre las distintas ideologías.
 
 ---
 
