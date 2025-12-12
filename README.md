@@ -478,7 +478,6 @@ Resultados KNN
 
 -**TF_IDF**
 
-
 ![](/images/knn_tfidf_mconfusion.png)
 
 ![](/images/knn_tfidf_tabla.png)
@@ -504,6 +503,10 @@ Resultados KNN
 -**En el conjunto de test**, que no se ha utilizado en ningún momento durante el entrenamiento, los valores son 0,548 en accuracy (aproximadamente un 55 % de aciertos) y 0,518 en F1-macro.
 
 Además, como en este problema hay cuatro posibles ideologías, si el modelo eligiera una clase al azar solo acertaría aproximadamente 1 de cada 4 tweets. El hecho de que el Transformer acierte algo más de la mitad y obtenga un F1-macro cercano a 0,52 muestra que realmente está aprendiendo patrones del lenguaje de los tweets y que es capaz de aprovechar esa información para distinguir entre las distintas ideologías.
+
+Analizando las métricas correspondientes podemos sacar que la vectorización que mejores resultados nos ha aportado ha sido el TF-IDF.
+
+Por otro lado, analizando los diferentes clasificadores para esta vectorización, nos encontramos que en general todos los clasificadores tienen un Accruracy muy similar, sin embargo, fijándonos en otras métricas podemos concluir que el mejor es LogisticRegresion, sobretodo en la Matriz de Confusión.
 
 ---
 
