@@ -226,7 +226,7 @@ Se proyectaron 500 embeddings con **t-SNE** para visualizar agrupaciones semánt
 Los embeddings contextuales basados en Transformers (como **BERT**) generan vectores cuyo significado depende del **contexto** en el que aparece cada palabra.
 
 - Se usa el modelo **BETO** (`dccuchile/bert-base-spanish-wwm-cased`), específico para español.
-- Por cuestiones computacionales se trabajan solo **2.000 tweets** para la generación de embeddings.
+- Por cuestiones computacionales se trabajan solo **6.000 tweets** para la generación de embeddings.
 
 A continuación se muestra la representación BERT del primer tweet.
 ![](/images/bert1.png)
