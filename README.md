@@ -138,6 +138,10 @@ Ideología: Derecha
 
 Este análisis permite comparar el vocabulario predominante de cada bloque ideológico y sirve de base para aplicar técnicas más avanzadas de PLN y aprendizaje automático.
 
+### 4.7 Hipótesis inicial
+A priori podemos deducir que la clasificación va a ser compleja por varios aspectos. Tenemos datos desbalanceados lo que va a producir un mal entrenamiento en los clasificadores, aprendiendo de forma muy exacta algunas clases y otras con mayor dificultad. Además, se le suma que las palabras mayoritarias empleadas en cada clase son muy similares, provocando que la diferenciación por este factor no sea muy grande.
+Por tanto, nuestra hipótesis inicial es que vamos a obtener unas métricas muy pobres no pudiendo identificar de manera correcta las clases.
+
 ---
 
 ## 5. Representación vectorial del texto
@@ -224,19 +228,32 @@ El objetivo es clasificar los tweets según su **ideología multiclase**:
 - `moderate_right`
 - `right`
 
-y comprobar hasta qué punto el uso del lenguaje permite diferenciar entre clases.
+Así,comprobamos hasta qué punto el uso del lenguaje permite diferenciar entre clases.
+Para ello vamos a usar una red neuronal y tres clasificadores de la librería Scikit-learn
+### 6.1 Red neuronal
+Para la red neuronal utilizada se entrena un clasificador a partir de textos usando una de tres representaciones numéricas: TF-IDF, Word2Vec o BERT.
+1) Se construyen los vectores de entrada:
+- TF-IDF: cada documento se convierte en un vector denso.
+- Word2Vec: se cargan los vectores ya generados para cada documento.
+- BERT: se cargan los embeddings generados previamente para cada documento.
 
-### 6.1 División de datos
+2) Las etiquetas se convierten a valores numéricos usando LabelEncoder.
 
-Se define una función `split_data` que divide los datos en:
+3) El programa pide al usuario elegir el tipo de vectorización:
+- T = TF-IDF
+- W = Word2Vec
+- B = BERT
 
-- **70%** entrenamiento (train)
-- **20%** validación (val)
-- **10%** test
+4) Se revisa que los datos no contengan valores NaN.
 
-![](/images/8mH_Image_11.png)
+5) Se entrena un modelo mediante la función train_classifier__ utilizando:
+- 300 épocas
+- learning rate = 0.0001
+- hidden_dim = 256
 
-En el caso de BERT se ajusta el tamaño de `X` e `Y` para trabajar con un subconjunto de 8.000 muestras.
+6) Al finalizar, se muestran gráficas de pérdida, precisión y F1 usando las funciones plot_loss, plot_accuracy y plot_f1.
+
+Para usarlo, ejecuta el script y elige T, W o B cuando se solicite.
 
 ### 6.2 Clasificadores de Scikit-learn
 
@@ -252,8 +269,16 @@ Para cada uno se definen dos funciones:
    - Busca los mejores hiperparámetros usando train + val.
 2. **Función de clasificación**  
    - Entrena con los hiperparámetros óptimos y evalúa en test.
+  
+Para ello vamos, se define una función `split_data` que divide los datos en tres subconjutos:
 
-Las métricas usadas son:
+- **70%** entrenamiento (train)
+- **20%** validación (val)
+- **10%** test
+![](/images/8mH_Image_11.png)
+En el caso de BERT se ajusta el tamaño de `X` e `Y` para trabajar con un subconjunto de 8.000 muestras.
+
+Las métricas para evaluar los modelos son:
 
 - **Accuracy**
 - **F1-score**
