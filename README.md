@@ -569,5 +569,7 @@ Cluster 12 concentra vocabulario como "gobierno", "ley", "derecha", "constituci�
 La existencia de estos bloques semánticos confirma que el clustering sobre embeddings permite identificar tópicos sensibles, muchos de los cuales coinciden con áreas donde la desinformación tiende a aparecer con mayor frecuencia como economía, pandemia, violencia o política institucional.
 
 Como en Word2Vec, se ha realizado una representación T-SNE:
+
 <img width="362" height="323" alt="kmeans" src="https://github.com/user-attachments/assets/01bdfd01-01e6-42ef-b9c6-da1f75acc5e1" />
 
+La visualización mediante t-SNE confirma que los embeddings han agrupado palabras de manera significativa: los clusters no están mezclados caóticamente, sino que presentan estructuras semánticas claras, con zonas de alta cohesión interna y separaciones naturales entre temas. Esto refuerza que la segmentación por clusters es válida y útil para entender la organización del vocabulario del corpus.
