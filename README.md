@@ -439,13 +439,17 @@ TF_IDF
 
 ![](/images/randomforest_tfidf_tabla.png)
 
+
 Word2Vec
+
 ![](/images/randomforest_word2vec_mconfusion.png)
 
 ![](/images/randomforest_word2vec_tabla.png)
 
 
+
 Bert
+
 ![](/images/randomforest_bert_mconfusion.png)
 
 ![](/images/randomforest_bert_tabla.png)
