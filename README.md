@@ -422,7 +422,49 @@ Además, como en este problema hay cuatro posibles ideologías, si el modelo eli
 
 ---
 
-## 9. Proyecto de extensión: análisis temático de la desinformación
+##  10.Conclusiones 
+
+En este trabajo se han implementado distintos métodos de vectorización para clasificar tuits según su ideología política. Tras evaluar los resultados obtenidos, se pueden extraer las siguientes conclusiones:
+
+1. BERT:
+
+El uso de BERT requirió recortar los textos debido a limitaciones del modelo, lo que implicó pérdida de información relevante. Esta reducción afectó negativamente a las métricas de evaluación, como se reflejó en el accuracy y en la matriz de confusión.
+
+La limitación en la longitud de los tuits procesados dificultó que el modelo captara el contexto completo, reduciendo así su efectividad.
+
+2. Word2Vec:
+
+La vectorización con embeddings mediante Word2Vec logró mejorar los resultados respecto a BERT. Aun así, el rendimiento obtenido siguió siendo insuficiente para una clasificación sólida, indicando que este método tampoco captó con precisión las sutilezas ideológicas presentes en los tuits.
+
+3. TF-IDF:
+
+El método que presentó el mejor desempeño fue TF-IDF. Su capacidad para resaltar palabras clave permitió obtener métricas superiores frente a los otros modelos. En este caso, la representación basada en frecuencia resultó más adecuada que los embeddings para este conjunto de datos y tarea específica.
+
+En conjunto, los resultados muestran que, para este problema concreto, los métodos más simples y basados en frecuencia pueden ser más eficaces que modelos basados en
+embeddings o modelos preentrenados de lenguaje, especialmente cuando los textos son cortos o contienen poco contexto político explícito.
+
+Por otro lado, destacar que implementando el transformer Hugging Face, los resultados obtenidos son similares a los conseguidos mediante los algoritmos de clasificación
+
+Scikit-Learn y el clasificador implementado con PyTorch concluyendo que el tema de clasificación multiclase por ideología no es el idóneo.
+
+Suposiciones
+
+Durante el desarrollo del proyecto se han identificado varias limitaciones que pueden haber influido en los resultados:
+
+1. Presencia de tuits genéricos:
+
+En el conjunto de datos aparecían tuits que no contenían información política suficiente para asignar una ideología. La inclusión de estos mensajes probablemente afectó a la calidad de la clasificación, introduciendo ruido en el aprendizaje de los modelos.
+
+2. Subjetividad en la clasificación política:
+
+La ideología política es un concepto en gran parte subjetivo. Lo que una persona interpreta como un mensaje de izquierdas o derechas puede no coincidir con la percepción de otra. Esta ambigüedad afecta tanto a la etiquetación manual como al rendimiento esperado de los modelos.
+
+3. Posible enfoque alternativo:
+
+Una estrategia más objetiva podría haber sido clasificar los tuits según el sector político al que se refieren (por ejemplo, economía, educación, políticas sociales, etc.) en lugar de intentar inferir la ideología completa. Esto habría reducido la subjetividad y posiblemente mejorado el rendimiento del sistema.
+
+---
+##  10. Proyecto de extensión: análisis temático de la desinformación
 
 Se aplica el algoritmo **K-Means** sobre los embeddings de **Word2Vec** para identificar temas recurrentes relacionados con desinformación y discurso polarizado.
 
