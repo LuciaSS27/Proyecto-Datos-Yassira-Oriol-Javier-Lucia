@@ -228,7 +228,13 @@ Los embeddings contextuales basados en Transformers (como **BERT**) generan vect
 - Se usa el modelo **BETO** (`dccuchile/bert-base-spanish-wwm-cased`), específico para español.
 - Por cuestiones computacionales se trabajan solo **2.000 tweets** para la generación de embeddings.
 
+A continuación se muestra la representación BERT del primer tweet.
+![](/images/bert1.png)
+
 Tras obtener las representaciones BERT de los tweets, se calculó la **matriz de similitud** (coseno) entre los 5 primeros:
+
+![](/images/bert2.png)
+![](/images/bert3.png)
 
 - Todos los valores fuera de la diagonal son > 0.85.
 - Algunos pares (por ejemplo, tweet 1 y 3) tienen similitud ~0.96, coherente con su contenido.
