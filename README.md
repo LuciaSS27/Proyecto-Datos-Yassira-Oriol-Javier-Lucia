@@ -404,6 +404,7 @@ Durante el entrenamiento la función de pérdida de entrenamiento disminuye desd
 
 
 Resultados Red Neuronal:
+
 -**TF_IDF**
 
 ![](/images/redneuronal_accuracy_tfidf.png)
