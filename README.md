@@ -427,7 +427,7 @@ Además, como en este problema hay cuatro posibles ideologías, si el modelo eli
 
 ---
 
-##  10.Conclusiones 
+##  9.Conclusiones 
 
 En este trabajo se han implementado distintos métodos de vectorización para clasificar tuits según su ideología política. Tras evaluar los resultados obtenidos, se pueden extraer las siguientes conclusiones:
 
