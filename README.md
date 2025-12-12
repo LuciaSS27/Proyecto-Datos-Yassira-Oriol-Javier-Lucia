@@ -375,7 +375,7 @@ Durante el entrenamiento, la pérdida desciende desde ≈1.34 hasta ≈0.65, ind
 ### 8.3 Resultados del Transformer
 Una vez entrenado el modelo Transformer, se utilizó la función evaluate de la clase Trainer para medir su rendimiento. Esta función calcula varias métricas automáticamente; en este trabajo nos fijamos solo en dos:
 
--**la accuracy (eval_accuracy)**, que indica qué porcentaje de tweets se clasifican correctamente,
+-**la accuracy (eval_accuracy)**, que indica qué porcentaje de tweets se clasifican correctamente
 -**y el F1-macro (eval_f1_macro)**, que resume cómo de bien funciona el modelo teniendo en cuenta las cuatro clases por igual.
 
 - En el conjunto de validación, el modelo obtiene una accuracy de 0,506 (aproximadamente un 51 % de aciertos) y un F1-macro de 0,485.
