@@ -497,7 +497,7 @@ Resultados KNN
 ![](/images/knn_bert_tabla.png)
 
 
-Transformer
+-**Transformer**
 
 -**En el conjunto de validación**, el modelo obtiene una accuracy de 0,506 (alrededor de un 51 % de aciertos) y un F1-macro de 0,485.
 
@@ -507,7 +507,7 @@ Además, como en este problema hay cuatro posibles ideologías, si el modelo eli
 
 ---
 
-##  9.Conclusiones 
+##  8.Conclusiones 
 
 En este trabajo se han implementado distintos métodos de vectorización para clasificar tuits según su ideología política. Tras evaluar los resultados obtenidos, se pueden extraer las siguientes conclusiones:
 
@@ -549,7 +549,7 @@ La ideología política es un concepto en gran parte subjetivo. Lo que una perso
 Una estrategia más objetiva podría haber sido clasificar los tuits según el sector político al que se refieren (por ejemplo, economía, educación, políticas sociales, etc.) en lugar de intentar inferir la ideología completa. Esto habría reducido la subjetividad y posiblemente mejorado el rendimiento del sistema.
 
 ---
-##  10. Proyecto de extensión: análisis temático de la desinformación
+##  9. Proyecto de extensión: análisis temático de la desinformación
 
 Análisis temático de la desinformación: Aplicar métodos de modelado de tópicos o de clustering sobre embeddings contextuales para detectar temas recurrentes de desinformación.
 
